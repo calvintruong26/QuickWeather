@@ -12,46 +12,59 @@ import Alamofire
 class CurrentWeatherViewController: UIViewController {
     
 
-    @IBOutlet var nameLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
 
+    @IBOutlet weak var tempLabel: UILabel!
     
-    var currentWeather = CurrentWeatherModel(zip: "12345", placeName: "Imaginary Place", degrees: 75, desc: "")
+    @IBOutlet weak var descLabel: UILabel!
+    var currentWeather = WeatherModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        nameLabel.frame = CGRect(x: 0, y: 0, width: self.view.frame.width*0.8, height: self.view.frame.width/10)
-        nameLabel.font = UIFont(name: nameLabel.font.fontName, size: 40)
-        nameLabel.center = CGPoint(x: self.view.frame.width/2, y: self.view.frame.height/6)
-        nameLabel.textAlignment = .center
 
+        newQuery(place: "San+Jose");
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        view.addGestureRecognizer(tap)
     }
 
     
-    func newQuery(zipCode: String) {
-        let url = "http://api.openweathermap.org/data/2.5/weather?zip=" + zipCode + "&units=imperial&appid=79351b4282c4cfd4998fa02965fc0326"
+    func newQuery(place: String) {
         
+        //URL for Weather API
+        let url = "http://api.openweathermap.org/data/2.5/weather?zip=" + place + "&units=imperial&appid=79351b4282c4cfd4998fa02965fc0326"
         
+        //Request JSON
         Alamofire.request(url).responseJSON { response in
             if let result = response.result.value {
                 let json = JSON(result)
                 
                 //get values
                 let name = json["name"].stringValue
-                //let deg = json["main"]["temp"].intValue
-                
+                let deg = json["main"]["temp"].intValue
+                let desc = json["weather"][0]["description"].stringValue
+          
                 //set values
-                self.currentWeather.zip = zipCode
                 self.currentWeather.placeName = name
-                //self.currentWeather.degrees = deg
+                self.currentWeather.degrees = deg
+                self.currentWeather.description = desc
             }
+            
+            //update view
+            self.updateCurrentWeatherView()
         }
-        
-        updateCurrentWeatherView()
     }
     
     func updateCurrentWeatherView() {
         self.nameLabel.text = self.currentWeather.placeName
+        self.tempLabel.text = String(self.currentWeather.degrees) + " °F"
+        self.descLabel.text = self.currentWeather.description.capitalized
+    }
+    
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
     }
     
     override func didReceiveMemoryWarning() {
@@ -64,11 +77,3 @@ class CurrentWeatherViewController: UIViewController {
 
 }
 
-//Alamofire.request(url).responseJSON { response in
-//    if let result = response.result.value as? NSDictionary {
-//        let name = result["name"]
-//        
-//        self.label.text = name as! String?
-//    }
-//    
-//}
