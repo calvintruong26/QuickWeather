@@ -4,20 +4,27 @@
 
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
-    "67620B5EFA902936DF04070AF595B76AB0333747" : 9223372036854775807,
+    "3AE8ED2E684071AF4FB151FA51BF266B82FF45BD" : 9223372036854775807,
+    "E14C3210267A7DD14A18B046C2042738E642D923" : 9223372036854775807,
     "C861FC00CEE0F6A6BE81FCFF6785FAA78C58EBB3" : 9223372036854775807,
-    "E14C3210267A7DD14A18B046C2042738E642D923" : 9223372036854775807
+    "67620B5EFA902936DF04070AF595B76AB0333747" : 9223372036854775807
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "9ED38D39-3501-4808-B9B2-2F80BDAD9DF5",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
-    "67620B5EFA902936DF04070AF595B76AB0333747" : "QuickWeather\/Alamofire\/",
+    "3AE8ED2E684071AF4FB151FA51BF266B82FF45BD" : "QuickWeather\/SQLite.swift\/",
+    "E14C3210267A7DD14A18B046C2042738E642D923" : "QuickWeather\/",
     "C861FC00CEE0F6A6BE81FCFF6785FAA78C58EBB3" : "QuickWeather\/SwiftyJSON\/",
-    "E14C3210267A7DD14A18B046C2042738E642D923" : "QuickWeather\/"
+    "67620B5EFA902936DF04070AF595B76AB0333747" : "QuickWeather\/Alamofire\/"
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "QuickWeather",
   "DVTSourceControlWorkspaceBlueprintVersion" : 204,
   "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "QuickWeather.xcodeproj",
   "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/stephencelis\/SQLite.swift",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "3AE8ED2E684071AF4FB151FA51BF266B82FF45BD"
+    },
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Alamofire\/Alamofire.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",

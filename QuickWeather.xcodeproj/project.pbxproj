@@ -18,7 +18,14 @@
 		3E1FF1571DCBEBBB009BEEF6 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E1FF14A1DCBEB13009BEEF6 /* Alamofire.framework */; };
 		3E1FF1581DCBEBBB009BEEF6 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3E1FF14A1DCBEB13009BEEF6 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3E1FF15C1DCBF30B009BEEF6 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1FF15B1DCBF30B009BEEF6 /* SwiftyJSON.swift */; };
+		3E8A521E1DED32AE00C90E07 /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E8A52111DED329600C90E07 /* SQLite.framework */; };
+		3E8A52201DED359400C90E07 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8A521F1DED359400C90E07 /* FavoritesViewController.swift */; };
+		3E8A52261DED384700C90E07 /* FavoritesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8A52251DED384700C90E07 /* FavoritesTableViewCell.swift */; };
+		3E8A52271DED691700C90E07 /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E8A52111DED329600C90E07 /* SQLite.framework */; };
+		3E8A52281DED691700C90E07 /* SQLite.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3E8A52111DED329600C90E07 /* SQLite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3E9F7BB91DD28CCE0081C1A1 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9F7BB81DD28CCE0081C1A1 /* WeatherModel.swift */; };
+		3EA497D01DE7940E0036C28D /* WeeklyWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA497CF1DE7940E0036C28D /* WeeklyWeatherViewController.swift */; };
+		3EFD3CF31DEABCB400A37C67 /* ItemsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFD3CF21DEABCB400A37C67 /* ItemsTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +99,62 @@
 			remoteGlobalIDString = F8111E3219A95C8B0040E7D1;
 			remoteInfo = "Alamofire iOS";
 		};
+		3E8A52101DED329600C90E07 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3E8A51FF1DED329600C90E07 /* SQLite.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EE247AD31C3F04ED00AE3E12;
+			remoteInfo = "SQLite iOS";
+		};
+		3E8A52121DED329600C90E07 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3E8A51FF1DED329600C90E07 /* SQLite.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EE247ADD1C3F04ED00AE3E12;
+			remoteInfo = "SQLiteTests iOS";
+		};
+		3E8A52141DED329600C90E07 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3E8A51FF1DED329600C90E07 /* SQLite.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EE247B3C1C3F3ED000AE3E12;
+			remoteInfo = "SQLite Mac";
+		};
+		3E8A52161DED329600C90E07 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3E8A51FF1DED329600C90E07 /* SQLite.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EE247B451C3F3ED000AE3E12;
+			remoteInfo = "SQLiteTests Mac";
+		};
+		3E8A52181DED329600C90E07 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3E8A51FF1DED329600C90E07 /* SQLite.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 03A65E5A1C6BB0F50062603F;
+			remoteInfo = "SQLite tvOS";
+		};
+		3E8A521A1DED329600C90E07 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3E8A51FF1DED329600C90E07 /* SQLite.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 03A65E631C6BB0F60062603F;
+			remoteInfo = "SQLiteTests tvOS";
+		};
+		3E8A521C1DED329600C90E07 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3E8A51FF1DED329600C90E07 /* SQLite.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A121AC451CA35C79005A31D1;
+			remoteInfo = "SQLite watchOS";
+		};
+		3E8A52291DED691700C90E07 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3E8A51FF1DED329600C90E07 /* SQLite.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = EE247AD21C3F04ED00AE3E12;
+			remoteInfo = "SQLite iOS";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -101,6 +164,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				3E8A52281DED691700C90E07 /* SQLite.framework in Embed Frameworks */,
 				3E1FF1581DCBEBBB009BEEF6 /* Alamofire.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -125,7 +189,12 @@
 		3E1FF0DD1DCBE0A8009BEEF6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3E1FF13E1DCBEB13009BEEF6 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
 		3E1FF15B1DCBF30B009BEEF6 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftyJSON.swift; path = SwiftyJSON/Source/SwiftyJSON.swift; sourceTree = SOURCE_ROOT; };
+		3E8A51FF1DED329600C90E07 /* SQLite.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SQLite.xcodeproj; path = SQLite.swift/SQLite.xcodeproj; sourceTree = "<group>"; };
+		3E8A521F1DED359400C90E07 /* FavoritesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		3E8A52251DED384700C90E07 /* FavoritesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewCell.swift; sourceTree = "<group>"; };
 		3E9F7BB81DD28CCE0081C1A1 /* WeatherModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
+		3EA497CF1DE7940E0036C28D /* WeeklyWeatherViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeeklyWeatherViewController.swift; sourceTree = "<group>"; };
+		3EFD3CF21DEABCB400A37C67 /* ItemsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemsTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,7 +202,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E8A521E1DED32AE00C90E07 /* SQLite.framework in Frameworks */,
 				3E1FF1571DCBEBBB009BEEF6 /* Alamofire.framework in Frameworks */,
+				3E8A52271DED691700C90E07 /* SQLite.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -157,6 +228,7 @@
 		3E1FF0AD1DCBE0A7009BEEF6 = {
 			isa = PBXGroup;
 			children = (
+				3E8A51FF1DED329600C90E07 /* SQLite.xcodeproj */,
 				3E1FF13E1DCBEB13009BEEF6 /* Alamofire.xcodeproj */,
 				3E1FF0B81DCBE0A8009BEEF6 /* QuickWeather */,
 				3E1FF0CF1DCBE0A8009BEEF6 /* QuickWeatherTests */,
@@ -180,13 +252,17 @@
 			children = (
 				3E1FF15B1DCBF30B009BEEF6 /* SwiftyJSON.swift */,
 				3E1FF0B91DCBE0A8009BEEF6 /* AppDelegate.swift */,
+				3E9F7BB81DD28CCE0081C1A1 /* WeatherModel.swift */,
 				3E1FF0BB1DCBE0A8009BEEF6 /* CurrentWeatherViewController.swift */,
 				3E1FF0BD1DCBE0A8009BEEF6 /* DailyWeatherViewController.swift */,
+				3EA497CF1DE7940E0036C28D /* WeeklyWeatherViewController.swift */,
+				3E8A521F1DED359400C90E07 /* FavoritesViewController.swift */,
 				3E1FF0BF1DCBE0A8009BEEF6 /* Main.storyboard */,
 				3E1FF0C21DCBE0A8009BEEF6 /* Assets.xcassets */,
 				3E1FF0C41DCBE0A8009BEEF6 /* LaunchScreen.storyboard */,
 				3E1FF0C71DCBE0A8009BEEF6 /* Info.plist */,
-				3E9F7BB81DD28CCE0081C1A1 /* WeatherModel.swift */,
+				3EFD3CF21DEABCB400A37C67 /* ItemsTableViewCell.swift */,
+				3E8A52251DED384700C90E07 /* FavoritesTableViewCell.swift */,
 			);
 			path = QuickWeather;
 			sourceTree = "<group>";
@@ -223,6 +299,20 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		3E8A52001DED329600C90E07 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3E8A52111DED329600C90E07 /* SQLite.framework */,
+				3E8A52131DED329600C90E07 /* SQLiteTests iOS.xctest */,
+				3E8A52151DED329600C90E07 /* SQLite.framework */,
+				3E8A52171DED329600C90E07 /* SQLiteTests Mac.xctest */,
+				3E8A52191DED329600C90E07 /* SQLite.framework */,
+				3E8A521B1DED329600C90E07 /* SQLiteTests tvOS.xctest */,
+				3E8A521D1DED329600C90E07 /* SQLite.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -239,6 +329,7 @@
 			);
 			dependencies = (
 				3E1FF15A1DCBEBBB009BEEF6 /* PBXTargetDependency */,
+				3E8A522A1DED691700C90E07 /* PBXTargetDependency */,
 			);
 			name = QuickWeather;
 			productName = QuickWeather;
@@ -293,6 +384,7 @@
 				TargetAttributes = {
 					3E1FF0B51DCBE0A7009BEEF6 = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = UM5YGB8B7Y;
 						ProvisioningStyle = Automatic;
 					};
 					3E1FF0CB1DCBE0A8009BEEF6 = {
@@ -322,6 +414,10 @@
 				{
 					ProductGroup = 3E1FF13F1DCBEB13009BEEF6 /* Products */;
 					ProjectRef = 3E1FF13E1DCBEB13009BEEF6 /* Alamofire.xcodeproj */;
+				},
+				{
+					ProductGroup = 3E8A52001DED329600C90E07 /* Products */;
+					ProjectRef = 3E8A51FF1DED329600C90E07 /* SQLite.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -383,6 +479,55 @@
 			remoteRef = 3E1FF1551DCBEB13009BEEF6 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		3E8A52111DED329600C90E07 /* SQLite.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SQLite.framework;
+			remoteRef = 3E8A52101DED329600C90E07 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3E8A52131DED329600C90E07 /* SQLiteTests iOS.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "SQLiteTests iOS.xctest";
+			remoteRef = 3E8A52121DED329600C90E07 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3E8A52151DED329600C90E07 /* SQLite.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SQLite.framework;
+			remoteRef = 3E8A52141DED329600C90E07 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3E8A52171DED329600C90E07 /* SQLiteTests Mac.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "SQLiteTests Mac.xctest";
+			remoteRef = 3E8A52161DED329600C90E07 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3E8A52191DED329600C90E07 /* SQLite.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SQLite.framework;
+			remoteRef = 3E8A52181DED329600C90E07 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3E8A521B1DED329600C90E07 /* SQLiteTests tvOS.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "SQLiteTests tvOS.xctest";
+			remoteRef = 3E8A521A1DED329600C90E07 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3E8A521D1DED329600C90E07 /* SQLite.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SQLite.framework;
+			remoteRef = 3E8A521C1DED329600C90E07 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -418,9 +563,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				3E1FF0BE1DCBE0A8009BEEF6 /* DailyWeatherViewController.swift in Sources */,
+				3E8A52261DED384700C90E07 /* FavoritesTableViewCell.swift in Sources */,
 				3E9F7BB91DD28CCE0081C1A1 /* WeatherModel.swift in Sources */,
+				3E8A52201DED359400C90E07 /* FavoritesViewController.swift in Sources */,
+				3EA497D01DE7940E0036C28D /* WeeklyWeatherViewController.swift in Sources */,
 				3E1FF0BA1DCBE0A8009BEEF6 /* AppDelegate.swift in Sources */,
 				3E1FF0BC1DCBE0A8009BEEF6 /* CurrentWeatherViewController.swift in Sources */,
+				3EFD3CF31DEABCB400A37C67 /* ItemsTableViewCell.swift in Sources */,
 				3E1FF15C1DCBF30B009BEEF6 /* SwiftyJSON.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -458,6 +607,11 @@
 			isa = PBXTargetDependency;
 			name = "Alamofire iOS";
 			targetProxy = 3E1FF1591DCBEBBB009BEEF6 /* PBXContainerItemProxy */;
+		};
+		3E8A522A1DED691700C90E07 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "SQLite iOS";
+			targetProxy = 3E8A52291DED691700C90E07 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -577,6 +731,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = UM5YGB8B7Y;
 				INFOPLIST_FILE = QuickWeather/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = CalvinTruong.QuickWeather;
@@ -590,6 +745,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = UM5YGB8B7Y;
 				INFOPLIST_FILE = QuickWeather/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = CalvinTruong.QuickWeather;
