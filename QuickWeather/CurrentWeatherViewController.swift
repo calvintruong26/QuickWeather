@@ -18,6 +18,8 @@ class CurrentWeatherViewController: UIViewController, UISearchBarDelegate {
 
     @IBOutlet weak var tempLabel: UILabel!
     
+    @IBOutlet weak var imageView: UIImageView!
+    
     @IBOutlet weak var descLabel: UILabel!
     
     var currentWeather = WeatherModel()
@@ -29,23 +31,25 @@ class CurrentWeatherViewController: UIViewController, UISearchBarDelegate {
     var db = try! Connection()
         
     let weather = Table("weather")
-    let zip = Expression<String>("zip")
+    let id = Expression<Int>("id")
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+       
         db = try! Connection("\(path)/favoritesDB")
         
-    
+        //try? db.run(weather.drop(ifExists: true))
+        
         try? db.run(weather.create { t in
-            t.column(zip, primaryKey: true)
+            t.column(id, primaryKey: true)
         })
         
         
         searchBar.delegate = self
         
-        newQuery(zip: "95192");
+        newQuery(place: "95192,US");
         
         nameLabel.adjustsFontSizeToFitWidth = true
         
@@ -55,10 +59,10 @@ class CurrentWeatherViewController: UIViewController, UISearchBarDelegate {
     }
 
     
-    func newQuery(zip: String) {
+    func newQuery(place: String) {
         
         //URL for Weather API
-        let url = "http://api.openweathermap.org/data/2.5/weather?zip=" + zip + "&units=imperial&appid=79351b4282c4cfd4998fa02965fc0326"
+        let url = "http://api.openweathermap.org/data/2.5/weather?q=" + place + "&units=imperial&appid=79351b4282c4cfd4998fa02965fc0326"
         
         //Request JSON
         Alamofire.request(url).responseJSON { response in
@@ -72,12 +76,16 @@ class CurrentWeatherViewController: UIViewController, UISearchBarDelegate {
                     let name = json["name"].stringValue
                     let deg = json["main"]["temp"].intValue
                     let desc = json["weather"][0]["description"].stringValue
+                    let icon = json["weather"][0]["icon"].stringValue
+                    let id = json["id"].intValue
               
                     //set values
-                    self.currentWeather.zip = zip
+                    //self.currentWeather.zip = zip
                     self.currentWeather.placeName = name
                     self.currentWeather.degrees = deg
                     self.currentWeather.description = desc
+                    self.currentWeather.icon = icon
+                    self.currentWeather.id = id
                         
                     //update view
                     self.updateCurrentWeatherView()
@@ -96,6 +104,7 @@ class CurrentWeatherViewController: UIViewController, UISearchBarDelegate {
         self.nameLabel.text = self.currentWeather.placeName
         self.tempLabel.text = String(self.currentWeather.degrees) + " °F"
         self.descLabel.text = self.currentWeather.description.capitalized
+        self.imageView.image = UIImage(named: self.currentWeather.icon)
     }
     
     
@@ -109,62 +118,34 @@ class CurrentWeatherViewController: UIViewController, UISearchBarDelegate {
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        let text = searchBar.text!
-        let numReference = "0123456789"
-        var allNumbers = true
-        
-        //check if text is non-empty and zip code length
-        if (text != "" && text.characters.count == 5) {
-            
-            //check to see if all characters are numbers
-            for i in 0...4 {
-                let index = text.index((text.startIndex), offsetBy: i)
-                let char = text[index]
-                let str = String(describing: char)
-                if (!numReference.contains(str)) {
-                    allNumbers = false
-                }
-            }
-            
-            //if format correct, make new query
-            if (allNumbers) {
-                let zipCode = searchBar.text
-                searchBar.text = ""
-                newQuery(zip: zipCode!)
-                dismissKeyboard()
-            }
-                
-            //else create error message
-            else {
-                self.errorAlert()
-            }
-            
-        }
-            
-        //else create error message
-        else {
-            self.errorAlert()
-        }
+        var text = searchBar.text!
+        text = text.replacingOccurrences(of: " ", with: "+")
+
+        let zipCode = text
+        searchBar.text = ""
+        newQuery(place: zipCode)
+        dismissKeyboard()
+
     }
     
     @IBAction func saveToFavs(_ sender: UIButton) {
 
         
         do {
-            let rowid = try db.run(weather.insert(zip <- currentWeather.zip))
+            let rowid = try db.run(weather.insert(id <- currentWeather.id))
             print("inserted id: \(rowid)")
         } catch {
             print("insertion failed: \(error)")
         }
         
         for instance in try! db.prepare(weather) {
-            print(instance[zip])
+            print(instance[id])
         }
     }
     
     func errorAlert() {
-        let title = "Invalid Zip Code"
-        let message = "Error: You entered an invalid Zip Code. Please try again."
+        let title = "Invalid Entry"
+        let message = "Error: You entered an invalid place. Please try again."
         let okText = "OK"
         
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)

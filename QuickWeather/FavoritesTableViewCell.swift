@@ -14,7 +14,7 @@ class FavoritesTableViewCell: UITableViewCell {
     
     @IBOutlet weak var tempLabel: UILabel!
     
-    var zip = String()
+    var id = Int()
     
     override func awakeFromNib() {
         super.awakeFromNib()

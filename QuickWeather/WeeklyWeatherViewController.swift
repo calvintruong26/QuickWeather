@@ -93,7 +93,7 @@ class WeeklyWeatherViewController: UIViewController, UISearchBarDelegate {
         imgs[5] = imgSix
         imgs[6] = imgSeven
 
-        newQuery(zip: "95192")
+        newQuery(place: "95192,US")
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(WeeklyWeatherViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
@@ -105,9 +105,9 @@ class WeeklyWeatherViewController: UIViewController, UISearchBarDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    func newQuery(zip: String) {
+    func newQuery(place: String) {
         
-        let url = "http://api.openweathermap.org/data/2.5/forecast/daily?zip=" + zip + "&mode=json&units=imperial&cnt=8&appid=79351b4282c4cfd4998fa02965fc0326"
+        let url = "http://api.openweathermap.org/data/2.5/forecast/daily?q=" + place + "&mode=json&units=imperial&cnt=8&appid=79351b4282c4cfd4998fa02965fc0326"
         
         Alamofire.request(url).responseJSON { response in
             if let result = response.result.value {
@@ -169,11 +169,7 @@ class WeeklyWeatherViewController: UIViewController, UISearchBarDelegate {
         
         
         for i in 0...6 {
-            if let url = NSURL(string: "http://openweathermap.org/img/w/" + self.weatherList[i].icon + ".png") {
-                if let data = NSData(contentsOf: url as URL) {
-                    imgs[i].image = UIImage(data: data as Data)
-                }
-            }
+            imgs[i].image = UIImage(named: weatherList[i].icon)
         }
     }
     
@@ -183,47 +179,20 @@ class WeeklyWeatherViewController: UIViewController, UISearchBarDelegate {
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        let text = searchBar.text!
-        let numReference = "0123456789"
-        var allNumbers = true
+        var text = searchBar.text!
+        text = text.replacingOccurrences(of: " ", with: "+")
         
-        //check if text is non-empty and zip code length
-        if (text != "" && text.characters.count == 5) {
-            
-            //check to see if all characters are numbers
-            for i in 0...4 {
-                let index = text.index((text.startIndex), offsetBy: i)
-                let char = text[index]
-                let str = String(describing: char)
-                if (!numReference.contains(str)) {
-                    allNumbers = false
-                }
-            }
-            
-            //if format correct, make new query
-            if (allNumbers) {
-                let zipCode = searchBar.text
-                searchBar.text = ""
-                newQuery(zip: zipCode!)
-                dismissKeyboard()
-            }
-                
-                //else create error message
-            else {
-                self.errorAlert()
-            }
-            
-        }
-            
-            //else create error message
-        else {
-            self.errorAlert()
-        }
+        let zipCode = text
+        searchBar.text = ""
+        newQuery(place: zipCode)
+        dismissKeyboard()
+        
     }
+    
     
     func errorAlert() {
         let title = "Error"
-        let message = "You entered an invalid Zip Code. Please try again."
+        let message = "You entered an invalid place. Please try again."
         let okText = "OK"
         
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)

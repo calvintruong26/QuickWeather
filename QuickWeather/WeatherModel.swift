@@ -10,6 +10,7 @@ import Foundation
 
 class WeatherModel {
     var zip : String
+    var id: Int
     var placeName : String
     var degrees : Int
     var description : String
@@ -26,9 +27,10 @@ class WeatherModel {
         self.icon = ""
         self.weatherId = 0
         self.zip = ""
+        self.id = 0
     }
     
-    init(placeName: String, degrees: Int, desc: String, timestamp: String, icon: String, weatherId: Int, zip: String) {
+    init(placeName: String, degrees: Int, desc: String, timestamp: String, icon: String, weatherId: Int, zip: String, id: Int) {
         self.placeName = placeName
         self.degrees = degrees
         self.description = desc
@@ -36,6 +38,7 @@ class WeatherModel {
         self.icon = icon
         self.weatherId = weatherId
         self.zip = zip
+        self.id = id
     }
     
 }

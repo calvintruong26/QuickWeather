@@ -19,7 +19,7 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
     var db = try! Connection()
     
     let weather = Table("weather")
-    let zip = Expression<String>("zip")
+    let id = Expression<Int>("id")
     
     
     // Data model: These strings will be the data for the table view cells
@@ -39,7 +39,7 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
         
         
         try? db.run(weather.create { t in
-            t.column(zip, primaryKey: true)
+            t.column(id, primaryKey: true)
         })
         
         // Register the table view cell class and its reuse id
@@ -50,19 +50,23 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
         tableView.dataSource = self
         
         
-        
         //updateList()
+    }
+    
+    func sortList() {
+        self.list.sort() { $0.degrees > $1.degrees } // sort by degrees
+        self.tableView.reloadData(); // notify the table view the data has changed
     }
     
     func updateList() {
         list = [WeatherModel]()
         for instance in try! db.prepare(weather) {
             var weatherInstance = WeatherModel()
-            weatherInstance.zip = instance[zip]
+            weatherInstance.id = instance[id]
             
             
             //URL for Weather API
-            let url = "http://api.openweathermap.org/data/2.5/weather?zip=" + weatherInstance.zip + "&units=imperial&appid=79351b4282c4cfd4998fa02965fc0326"
+            let url = "http://api.openweathermap.org/data/2.5/weather?id=" + String(weatherInstance.id) + "&units=imperial&appid=79351b4282c4cfd4998fa02965fc0326"
             
             //Request JSON
             Alamofire.request(url).responseJSON { response in
@@ -75,10 +79,12 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
                         //get values
                         let name = json["name"].stringValue
                         let deg = json["main"]["temp"].intValue
+                        let icon = json["weather"][0]["icon"].stringValue
                         
                         //set values
                         weatherInstance.placeName = name
                         weatherInstance.degrees = deg
+                        weatherInstance.icon = icon
                         
                         //update view
                         //self.updateCurrentWeatherView()
@@ -91,7 +97,8 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
                 }
                 
                 self.list.append(weatherInstance)
-                self.tableView.reloadData()
+                self.sortList()
+                //self.tableView.reloadData()
             }
             
             
@@ -129,7 +136,7 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
         let object = list[(indexPath as NSIndexPath).row]
         cell.nameLabel.text = object.placeName
         cell.tempLabel.text = String(object.degrees) + " °F"
-        cell.zip = object.zip
+        cell.id = object.id
         
         return cell
     }
@@ -149,7 +156,7 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
             
             // remove the item from the data model
             let currentCell = tableView.cellForRow(at: indexPath) as! FavoritesTableViewCell
-            let rm = weather.filter(zip == currentCell.zip)
+            let rm = weather.filter(id == currentCell.id)
             try? db.run(rm.delete())
             self.list.remove(at: indexPath.row)
             

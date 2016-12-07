@@ -25,6 +25,7 @@
 		3E8A52281DED691700C90E07 /* SQLite.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3E8A52111DED329600C90E07 /* SQLite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3E9F7BB91DD28CCE0081C1A1 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9F7BB81DD28CCE0081C1A1 /* WeatherModel.swift */; };
 		3EA497D01DE7940E0036C28D /* WeeklyWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA497CF1DE7940E0036C28D /* WeeklyWeatherViewController.swift */; };
+		3ECEC2C91DF7D6D300C5D4BC /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECEC2C81DF7D6D300C5D4BC /* TabBarViewController.swift */; };
 		3EFD3CF31DEABCB400A37C67 /* ItemsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFD3CF21DEABCB400A37C67 /* ItemsTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -194,6 +195,7 @@
 		3E8A52251DED384700C90E07 /* FavoritesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewCell.swift; sourceTree = "<group>"; };
 		3E9F7BB81DD28CCE0081C1A1 /* WeatherModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
 		3EA497CF1DE7940E0036C28D /* WeeklyWeatherViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeeklyWeatherViewController.swift; sourceTree = "<group>"; };
+		3ECEC2C81DF7D6D300C5D4BC /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		3EFD3CF21DEABCB400A37C67 /* ItemsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemsTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -263,6 +265,7 @@
 				3E1FF0C71DCBE0A8009BEEF6 /* Info.plist */,
 				3EFD3CF21DEABCB400A37C67 /* ItemsTableViewCell.swift */,
 				3E8A52251DED384700C90E07 /* FavoritesTableViewCell.swift */,
+				3ECEC2C81DF7D6D300C5D4BC /* TabBarViewController.swift */,
 			);
 			path = QuickWeather;
 			sourceTree = "<group>";
@@ -570,6 +573,7 @@
 				3E1FF0BA1DCBE0A8009BEEF6 /* AppDelegate.swift in Sources */,
 				3E1FF0BC1DCBE0A8009BEEF6 /* CurrentWeatherViewController.swift in Sources */,
 				3EFD3CF31DEABCB400A37C67 /* ItemsTableViewCell.swift in Sources */,
+				3ECEC2C91DF7D6D300C5D4BC /* TabBarViewController.swift in Sources */,
 				3E1FF15C1DCBF30B009BEEF6 /* SwiftyJSON.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
