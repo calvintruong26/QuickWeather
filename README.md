@@ -10,5 +10,6 @@
 - Get info about weather for next 24 hours
 - Get info about weather for next 7 days
 - Recommends clothes/accessories based on weather (e.g. umbrella, sunglasses, etc.)
+- Save locations to favorites for easier access to weather info
 
 
